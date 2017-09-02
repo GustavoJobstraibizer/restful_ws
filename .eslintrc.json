@@ -1,9 +1,6 @@
 {
-    "extends": "standard"
+    "extends": "standard",
 	// "rules": {
 	// 	"semi": 1
 	// },
-	// "parserOptions": {
- //        "ecmaVersion": 6
- //    }
 }

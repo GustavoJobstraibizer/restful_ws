@@ -1,12 +1,12 @@
-const db = require('../services/mysql')
+const db =  require('../services/mysql')
 
 const routes = (server) => {
   server.get('categorias', async (req, res, next) => {
     try {
       res.send(await db.categorias().all())
-      next()
     } catch (error) {
       res.send(error)
+    } finally {
       next()
     }
   })
@@ -15,9 +15,9 @@ const routes = (server) => {
     const {id} = req.query
     try {
       res.send(await db.categorias().byId(id))
-      next()
     } catch (error) {
       res.send(error)
+    } finally {
       next()
     }
   })
@@ -26,9 +26,9 @@ const routes = (server) => {
     const {name} = req.params
     try {
       res.send(await db.categorias().save(name))
-      next()
     } catch (error) {
       res.send(error)
+    } finally { 
       next()
     }
   })
@@ -37,9 +37,9 @@ const routes = (server) => {
     const {id, name} = req.params
     try {
       res.send(await db.categorias().update(id, name))
-      next()
     } catch (error) {
       res.send(error)
+    } finally {
       next()
     }
   })
@@ -48,9 +48,9 @@ const routes = (server) => {
     const {id} = req.query
     try {
       res.send(await db.categorias().del(id))
-      next()
     } catch (error) {
       res.send(error)
+    } finally {
       next()
     }
   })
