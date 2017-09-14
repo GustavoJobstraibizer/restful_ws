@@ -11,6 +11,17 @@ const routes = (server) => {
     }
   })
 
+  server.post('autenticacao', async (req, res, next) => {
+    try {
+      const { email, password } = req.params
+      res.send(await db.auth().authenticate(email, password))
+    } catch (error) {
+      res.send(error)
+    } finally {
+      next()
+    }
+  })
+
   server.get('categoria', async (req, res, next) => {
     const {id} = req.query
     try {
