@@ -1,2 +1,2 @@
-# Nodejs e Restify
-> Webservice Restful desenvolvido com restify
+# Nodejs, Restify e MySQL
+> Webservice Restful desenvolvido com framework restify
