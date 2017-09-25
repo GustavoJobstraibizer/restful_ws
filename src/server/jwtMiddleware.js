@@ -9,15 +9,13 @@ const jwtMiddlware = (deps) => {
 				res.send(403, { error: 'Token não fornecido' })
 				return false
 			}
-	 
-			await jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
-				if (error) {
-					res.send(403, { error: 'Falha ao autenticar o token' })
-				} else {
-					req.decoded = decoded
-				}
-			})
-
+	 		
+			try {
+				req.decoded = jwt.verify(token, process.env.JWT_SECRET);
+			} catch (error) {
+				res.send(403, { error: 'Falha ao autenticar o token' });
+				return false;
+			}
 		}
 		next()
 	}
