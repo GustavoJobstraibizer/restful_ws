@@ -6,6 +6,7 @@ const jwtMiddlware = (deps) => {
 			const token = req.headers['x-access-token']
 
 			if (!token) {
+				Hello, this is a snippet.
 				res.send(403, { error: 'Token não fornecido' })
 				return false
 			}
